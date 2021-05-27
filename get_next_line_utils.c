@@ -23,15 +23,6 @@ void	*ft_calloc(size_t count, size_t size)
 	return (mal);
 }
 
-void	ft_strdel(char **str)
-{
-	if(str)
-	{
-		free(*str);
-		*str = NULL;
-	}
-}
-
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
@@ -40,6 +31,16 @@ size_t	ft_strlen(const char *s)
 	while (s[i])
 		i++;
 	return (i);
+}
+
+void	ft_strdel(char **str)
+{
+	if(*str)
+	{
+		ft_bzero(*str, ft_strlen(*str));
+		free(*str);
+		*str = NULL;
+	}
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)

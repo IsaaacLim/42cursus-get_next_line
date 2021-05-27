@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h> //REMOVE
 
-int BUFFER_SIZE = 32;
+# define BUFFER_SIZE 32
 
 int	get_next_line(int fd, char **line);
 

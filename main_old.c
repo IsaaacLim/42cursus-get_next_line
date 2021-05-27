@@ -19,13 +19,20 @@ int	main (int argc, char **argv)
 	if(argc == 2)
 	{
 		fd = open("sample.txt", O_RDONLY); //fd = 3
-		get_next_line(fd, &line);
-		printf("1: %s\n", line);
-		free (line);
-		get_next_line(fd, &line);
-		printf("2: %s\n", line);
-		free (line);
+		while ((ret = get_next_line(fd, &line)) > 0)
+		{
+			printf("%d: %d, %s\n", line_count++, ret, line);
+			free (line);
+		}
+		if (ret == 0)
+		{
+			printf("EOF has reached\n");
+			//free(line);
+		}
+		else if (ret == -1)
+			printf("ret -1: Error\n");
 	}
 	else
 		printf("Input != 2\n");
+	close(fd);
 }

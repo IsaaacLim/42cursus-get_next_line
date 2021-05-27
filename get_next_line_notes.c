@@ -56,4 +56,3 @@ int	get_next_line(int fd, char **line)
 		return (0);
 	return (ft_str_op(fd, line, arr)); // returns 1
 }
-

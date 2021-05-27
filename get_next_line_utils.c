@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "get_next_line.h"
 
 void	ft_bzero(void *s, size_t n)
 {

@@ -23,8 +23,6 @@ int	line_sep(char **arr, char **line, int ret)
 		free(*arr);
 		*arr = NULL;
 	}
-	//if (ret == 0 && *arr == NULL)
-	//	return (0);
 	return (1);
 }
 int get_next_line(int fd, char **line)

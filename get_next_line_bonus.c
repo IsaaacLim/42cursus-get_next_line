@@ -59,7 +59,7 @@ int	get_next_line(int fd, char **line)
 	char		buf[BUFFER_SIZE + 1];
 	int			ret;
 
-	if (fd < 0 || !line || BUFFER_SIZE <= 0)
+	if (fd < 0 || || fd >= 1000 || !line || BUFFER_SIZE <= 0)
 		return (-1);
 	if (!arr[fd])
 		arr[fd] = (char *)ft_calloc(1, 1);

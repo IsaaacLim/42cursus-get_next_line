@@ -1,6 +1,6 @@
 #include "get_next_line.h"
 
-int	line_sep(char **line, char **arr)
+int	line_sep(char **line, char **arr, int ret)
 {	
 	char	*temp;
 	int		i;
@@ -11,7 +11,7 @@ int	line_sep(char **line, char **arr)
 	if ((*arr)[i] == '\n')
 	{
 		*line = ft_substr(*arr, 0, i);
-		temp = ft_strdup(*arr + i + 1);
+		temp = ft_strdup((*arr) + i + 1);
 		free(*arr);
 		*arr = temp;
 	}
@@ -22,6 +22,8 @@ int	line_sep(char **line, char **arr)
 		free(*arr);
 		*arr = NULL;
 	}
+	if (ret == 0 && *arr == NULL)
+		return (0);
 	return (1);
 }
 
@@ -34,12 +36,12 @@ int	get_next_line(int fd, char **line)
 
 	if (fd < 0 || !line || BUFFER_SIZE <= 0)
 		return (-1);
+	if (!arr)
+		arr = (char *)ft_calloc(1, 1);
 	ret = read(fd, buf, BUFFER_SIZE);
 	while (ret > 0 )
 	{
 		buf[ret] = '\0';
-		if (!arr)
-			arr = (char *)ft_calloc(1, 1);
 		temp = ft_strjoin(arr, buf);
 		free(arr);
 		arr = temp;
@@ -47,9 +49,7 @@ int	get_next_line(int fd, char **line)
 			break ;
 		ret = read(fd, buf, BUFFER_SIZE);
 	}
-	if (!arr && !ret)
-		return (0);
-	else if (ret < 0)
+	if (ret < 0)
 		return (-1);
-	return (line_sep(line, &arr));
+	return (line_sep(line, &arr, ret));
 }

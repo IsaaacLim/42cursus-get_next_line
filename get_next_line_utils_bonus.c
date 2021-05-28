@@ -1,19 +1,5 @@
 #include "get_next_line_bonus.h"
 
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*mal;
-	char	*str;
-
-	mal = (void *)malloc(count * size);
-	if (!mal)
-		return (NULL);
-	str = (char *)mal;
-	while (count-- > 0)
-		*str++ = 0;
-	return (mal);
-}
-
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
@@ -78,4 +64,26 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		str[i] = s[start + i];
 	str[i] = '\0';
 	return (str);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	int		len;
+	char	*dst;
+	int		i;
+
+	len = 0;
+	while (s1[len])
+		len++;
+	dst = (char *)malloc(len * sizeof(char) + 1);
+	if (!dst)
+		return (NULL);
+	i = 0;
+	while (s1[i])
+	{
+		dst[i] = s1[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

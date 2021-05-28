@@ -1,6 +1,31 @@
 #include "get_next_line_bonus.h"
 
-int	line_sep(char **arr, char **line)
+void	ft_bzero(void *s, size_t n)
+{
+	char	*str;
+
+	str = (char *)s;
+	while (n > 0)
+	{
+		*str++ = '\0';
+		n--;
+	}
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*mal;
+	char	*str;
+
+	mal = (void *)malloc(count * size);
+	if (!mal)
+		return (NULL);
+	str = (char *)mal;
+	ft_bzero(mal, count * size);
+	return (mal);
+}
+
+int	line_sep(char **arr, char **line, int ret)
 {
 	char	*temp;
 	int		i;
@@ -51,5 +76,5 @@ int	get_next_line(int fd, char **line)
 	}
 	if (ret < 0)
 		return (-1);
-	return (line_sep(&arr[fd], line));
+	return (line_sep(&arr[fd], line, ret));
 }

@@ -1,31 +1,5 @@
 #include "get_next_line.h"
 
-
-void	ft_bzero(void *s, size_t n)
-{
-	char	*str;
-
-	str = (char *)s;
-	while (n > 0)
-	{
-		*str++ = '\0';
-		n--;
-	}
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*mal;
-	char	*str;
-
-	mal = (void *)malloc(count * size);
-	if (!mal)
-		return (NULL);
-	str = (char *)mal;
-	ft_bzero(mal, count * size);
-	return (mal);
-}
-
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;

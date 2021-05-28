@@ -1,5 +1,6 @@
 #include "get_next_line.h"
 
+
 void	ft_bzero(void *s, size_t n)
 {
 	char	*str;
@@ -15,10 +16,12 @@ void	ft_bzero(void *s, size_t n)
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*mal;
+	char	*str;
 
 	mal = (void *)malloc(count * size);
 	if (!mal)
 		return (NULL);
+	str = (char *)mal;
 	ft_bzero(mal, count * size);
 	return (mal);
 }
@@ -31,16 +34,6 @@ size_t	ft_strlen(const char *s)
 	while (s[i])
 		i++;
 	return (i);
-}
-
-void	ft_strdel(char **str)
-{
-	if(*str)
-	{
-		ft_bzero(*str, ft_strlen(*str));
-		free(*str);
-		*str = NULL;
-	}
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)

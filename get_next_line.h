@@ -1,12 +1,10 @@
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#include <unistd.h>
-#include <stdlib.h>
+# include <unistd.h>
+# include <stdlib.h>
 
-# define BUFFER_SIZE 32
-
-int	get_next_line(int fd, char **line);
+int		get_next_line(int fd, char **line);
 
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
@@ -17,4 +15,4 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strdup(const char *s1);
 
-# endif
+#endif

@@ -23,18 +23,17 @@ int	line_sep(char **arr, char **line, int ret)
 		free(*arr);
 		*arr = NULL;
 	}
-	//if (ret == 0 && *arr == NULL)
-	//	return (0);
 	return (1);
 }
-int get_next_line(int fd, char **line)
+
+int	get_next_line(int fd, char **line)
 {
 	static char	*arr[1000];
 	char		*temp;
 	char		buf[BUFFER_SIZE + 1];
 	int			ret;
 
-	if(fd < 0 || !line || BUFFER_SIZE <= 0)
+	if (fd < 0 || !line || BUFFER_SIZE <= 0)
 		return (-1);
 	ret = read(fd, buf, BUFFER_SIZE);
 	while (ret > 0)
@@ -46,7 +45,7 @@ int get_next_line(int fd, char **line)
 		free(arr[fd]);
 		arr[fd] = temp;
 		if (ft_strchr(arr[fd], '\n'))
-			break;
+			break ;
 		ret = read(fd, buf, BUFFER_SIZE);
 	}
 	if (ret < 0)

@@ -3,7 +3,7 @@
 int	line_sep(char **line, char **arr)
 {	
 	char	*temp;
-	int 	i;
+	int		i;
 
 	i = 0;
 	while ((*arr)[i] != '\n' && (*arr)[i] != '\0')
@@ -31,21 +31,21 @@ int	get_next_line(int fd, char **line)
 	char		buf[BUFFER_SIZE + 1];
 	char		*temp;
 	int			ret;
-	
-	if(fd < 0 || !line || BUFFER_SIZE <= 0)
+
+	if (fd < 0 || !line || BUFFER_SIZE <= 0)
 		return (-1);
 	ret = read(fd, buf, BUFFER_SIZE);
 	while (ret > 0 )
 	{
 		buf[ret] = '\0';
 		if (!arr)
-			arr = (char *)ft_calloc(1,1);
+			arr = (char *)ft_calloc(1, 1);
 		temp = ft_strjoin(arr, buf);
 		free(arr);
 		arr = temp;
 		if (ft_strchr(buf, '\n'))
-			break;
-		ret = read(fd, buf, BUFFER_SIZE);	
+			break ;
+		ret = read(fd, buf, BUFFER_SIZE);
 	}
 	if (!arr && !ret)
 		return (0);

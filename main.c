@@ -1,31 +1,27 @@
+#include "get_next_line_bonus.h"
+#include <stdio.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include "get_next_line.h"
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	int		fd;
+	int 	ret;
 	char	*line;
-	int		ret;
-	int		count;
 
-	count = 1;
-	ret = 0;
-	line = NULL;
 	if (argc == 2)
 	{
 		fd = open("sample.txt", O_RDONLY);
 		while ((ret = get_next_line(fd, &line)) > 0)
 		{
-			printf("%s\n", line);
+			printf("line: %s\n", line);
 			free(line);
 		}
 		if (ret == 0)
-			printf("EOF has reached\n");
-		else if (ret == -1)
-			printf("ret -1: Error\n");
+			printf("EOF\n");
+		if (ret == -1)
+			printf("Error\n");
 	}
 	else
-		printf("Input argument\n");
-	close(fd);
+		printf("Input argument");
 }

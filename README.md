@@ -1,3 +1,4 @@
-Submitted, waiting for results
+115/115
 
-There was leaks for invalid fd input of >= static char *arr size. Made changes to my bonus.c after submittion
+There was leaks for invalid fd input, whereby  fd >= arr_size *for static char[arr_size]*
+Made changes to my bonus.c after submittion

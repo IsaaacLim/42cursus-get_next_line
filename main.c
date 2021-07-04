@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		fd = open("sample.txt", O_RDONLY);
+		fd = open(argv[1], O_RDONLY);
 		while ((ret = get_next_line(fd, &line)) > 0)
 		{
 			printf("line: %s\n", line);
@@ -23,5 +23,5 @@ int main(int argc, char **argv)
 			printf("Error\n");
 	}
 	else
-		printf("Input argument");
+		printf("Input argument\n");
 }

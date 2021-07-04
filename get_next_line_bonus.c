@@ -15,12 +15,10 @@ void	ft_bzero(void *s, size_t n)
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*mal;
-	char	*str;
 
 	mal = (void *)malloc(count * size);
 	if (!mal)
 		return (NULL);
-	str = (char *)mal;
 	ft_bzero(mal, count * size);
 	return (mal);
 }
@@ -59,7 +57,7 @@ int	get_next_line(int fd, char **line)
 	char		buf[BUFFER_SIZE + 1];
 	int			ret;
 
-	if (fd < 0 || || fd >= 1000 || !line || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd >= 1000 || !line || BUFFER_SIZE <= 0)
 		return (-1);
 	if (!arr[fd])
 		arr[fd] = (char *)ft_calloc(1, 1);

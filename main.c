@@ -21,6 +21,7 @@ int main(int argc, char **argv)
 			printf("EOF\n");
 		if (ret == -1)
 			printf("Error\n");
+		close(fd);
 	}
 	else
 		printf("Input argument\n");

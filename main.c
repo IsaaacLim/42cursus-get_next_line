@@ -12,13 +12,11 @@ int main(int argc, char **argv)
 	if (argc == 2)
 	{
 		fd = open(argv[1], O_RDONLY);
-		while ((ret = get_next_line(fd, &line)) > 0)
+		while ((ret = get_next_line(fd, &line)) >= 0)
 		{
 			printf("line: %s\n", line);
 			free(line);
 		}
-		printf("line: %s\n", line);
-		free(line);
 		if (ret == 0)
 			printf("EOF\n");
 		if (ret == -1)

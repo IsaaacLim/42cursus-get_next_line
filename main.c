@@ -17,6 +17,8 @@ int main(int argc, char **argv)
 			printf("line: %s\n", line);
 			free(line);
 		}
+		printf("line: %s\n", line);
+		free(line);
 		if (ret == 0)
 			printf("EOF\n");
 		if (ret == -1)
